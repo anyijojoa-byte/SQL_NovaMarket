@@ -118,5 +118,19 @@ Es como un universo paralelo para tu código:
 *   **Local (Tu PC):** Tu taller privado. Aquí haces `git commit`. Solo tú lo ves.
 *   **Remoto (GitHub):** La galería pública. Aquí haces `git push`. Todo el mundo lo ve.
 
+---
+
+## 9. Bash, Zsh y los "Modelos" de Terminal
+
+No te asustes si ves nombres raros al abrir la terminal. Son solo "marcas" de intérpretes de comandos:
+
+*   **Bash:** El "clásico" universal. Casi todos los tutoriales en internet lo usan. Es sencillo y robusto.
+*   **Zsh (Z Shell):** El moderno que usa **Mac** por defecto. Es el que ves en estas clases. Te ayuda con colores y autocompletado de comandos.
+*   **SQL Console / SQLite:** Una terminal "especializada" que SOLO entiende bases de datos. No intentes usar `git` aquí.
+*   **JS Debug Terminal:** Una terminal que ya viene con herramientas para encontrar errores en código JavaScript.
+
 > [!IMPORTANT]
 > **El Punto y Coma (`;`):** En SQL es como el "punto final". Si no lo pones, SQLite se queda esperando a que termines la frase. ¡No lo olvides!
+
+> [!TIP]
+> **Para el estudiante:** Para este curso de SQL, los comandos de Git (`add`, `commit`, `push`) funcionan igual en **Bash** o **Zsh**. ¡No te preocupes por la diferencia!

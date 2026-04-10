@@ -5,34 +5,35 @@ Esta es tu guía práctica para realizar la sesión 6 de manera local usando **V
 
 ---
 
-## 1. Preparación del Entorno (Terminal)
+## 1. Preparación del Entorno (Crear la Base de Datos)
 
-Para que el sistema funcione, los archivos deben estar en el lugar correcto. Sigue estos pasos **exactamente** en tu terminal:
+Para que VS Code pueda ejecutar SQL, primero debemos crear el **archivo físico** de la base de datos. Sin este archivo, no tendrás dónde guardar tus tablas.
 
-1.  **Limpiar (Solo si ya lo intentaste):** Si ves un archivo llamado `01_Base_Datos_S06.db` **fuera** de las carpetas, bórralo primero.
-2.  **Ubicación (Shell `%`):** Debes "entrar" a la carpeta de la sesión. Copia y pega esto en tu terminal (asegúrate de ver el símbolo `%` o `$` al inicio):
+1.  **Limpiar:** Si ves un archivo llamado `01_Base_Datos_S06.db` pero está en el lugar equivocado, bórralo.
+2.  **Ubicación en Terminal:** Abre tu terminal integrada (`Ctrl + ñ` o `Cmd + J`) y asegúrate de estar en la carpeta correcta:
     ```bash
     cd /Users/macbookpro/Developer/Learning/SQL/01_Sesion_06
     ```
-3.  **Crear Base de Datos (Shell `%`):** Ahora crea el archivo físicamente. Copia y pega esto **exactamente**:
+3.  **CREAR EL ARCHIVO (Paso Crítico):** Copia y pega este comando. Es el que "da vida" a tu base de datos:
     ```bash
     sqlite3 01_Base_Datos_S06.db "VACUUM;"
     ```
-    *(Este comando crea el archivo y sale de inmediato. Verás que ahora el archivo aparece dentro de la carpeta `01_Sesion_06` en tu explorador de la izquierda).*
-
-> [!IMPORTANT]
-> **Diferencia de Pantalla:**
-> - Si ves `%` o `$`: Estás en la **Terminal** (Mac). Aquí usas `cd`, `ls`, `rm`.
-> - Si ves `sqlite>`: Estás **dentro** de la base de datos. Aquí solo se ejecutan comandos SQL o `.exit`.
+    *(Verás que ahora el archivo aparece en tu explorador de la izquierda. Si no aparece, la extensión de SQL no tendrá a qué conectarse).*
 
 ---
 
-## 2. El flujo de trabajo en VS Code
+## 2. Conexión en VS Code (SQLTools)
 
-Para esta sesión, trabajaremos así:
-1.  Abre el archivo **`03_Laboratorio_S06.sql`** desde el Explorador (a la izquierda).
-2.  Escribe o pega tu código allí.
-3.  **Para ejecutar:** Selecciona el bloque de código con el mouse y presiona **`Cmd + E`**. Antigravity lo enviará a la base de datos por ti.
+Si usas la extensión **SQLTools** (el icono de base de datos en la barra lateral), sigue estos pasos para "vincular" tu archivo `.sql` con tu base de datos:
+
+1.  Haz clic en el icono de **SQLTools** en la barra lateral.
+2.  Haz clic en **Add New Connection**.
+3.  Selecciona **SQLite**.
+4.  Configura así:
+    *   **Connection name:** `Sesion_06`
+    *   **Database file:** `/Users/macbookpro/Developer/Learning/SQL/01_Sesion_06/01_Base_Datos_S06.db`
+5.  Haz clic en **Save Connection** y luego en el icono del **enchufe (Connect)**.
+6.  **Para ejecutar:** Selecciona tu código en el editor y presiona **`Cmd + E`**.
 
 ---
 

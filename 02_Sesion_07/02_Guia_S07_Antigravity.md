@@ -31,15 +31,20 @@ Localiza el archivo **`03_Cargador_Excel_a_SQLite.py`** y ejecútalo. Este scrip
 
 ---
 
-## 2. Conexión con SQLTools
-Una vez generada la base de datos `Novamarket_S07.db`, debemos conectar VS Code para realizar nuestras consultas SQL.
+## 2. Conexión con SQLTools (Paso Crítico)
+Una vez generada la base de datos `Novamarket_S07.db`, debemos conectar VS Code. **Para evitar errores de "Archivo no encontrado", usaremos la ruta absoluta.**
 
 1.  Ve al menú de **SQLTools** (icono del cilindro).
 2.  Crea una **Nueva Conexión** (Add New Connection).
     - **Driver:** SQLite (Node.js).
     - **Nombre:** `NovaMarket_S07`.
-    - **Database File:** Busca el archivo **`Novamarket_S07.db`** en la carpeta `02_Sesion_07`.
-3.  Haz clic en **SAVE CONNECTION** y luego en **CONNECT**.
+    - **Database File:** **NO** uses el buscador. Copia y pega la ruta completa:
+      `/Users/macbookpro/Developer/Learning/SQL/02_Sesion_07/Novamarket_S07.db`
+3.  Haz clic en **SAVE CONNECTION** y luego en el icono del enchufe (**Connect**).
+
+> [!TIP]
+> **¿Cómo obtengo la ruta exacta?**
+> Haz click derecho sobre el archivo `Novamarket_S07.db` en tu explorador de archivos de VS Code (a la izquierda) y elige **"Copy Path"**. Esa es la ruta que debes pegar en SQLTools.
 
 ---
 

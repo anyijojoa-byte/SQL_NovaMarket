@@ -14,6 +14,9 @@
 
 
 -- ══ BLOQUE B — Columnas y Cálculos (Suma, Mult, Alias) ═════════
+-- TIP: Si vas a dividir (ej. margen %), multiplica por 100.0 primero
+-- para obligar a SQLite a trabajar con decimales.
+-- Ejemplo: ROUND((Ganancia * 100.0) / Precio, 2) AS Porcentaje
 
 
 

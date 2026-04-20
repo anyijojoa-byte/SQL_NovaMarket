@@ -67,6 +67,40 @@ El error más común es que la base de datos "no existe" porque VS Code la busca
 
 ---
 
+---
+
+## 5. El "Ciclo Infinito" y Error de Driver 🛠️
+Si te sale el mensaje *"Cannot read properties of null (reading 'driver')"* o te pide activar `useNodeRuntime` una y otra vez (loop).
+
+| Pregunta | Respuesta |
+|---|---|
+| **¿Dónde?** | En ventanas emergentes abajo a la derecha. |
+| **¿Qué?** | SQLTools no encuentra el programa Node.js en tu sistema. |
+| **¿Cuándo?** | Al intentar correr SQL sin tener Node.js instalado. |
+| **¿Por qué?** | El botón "Enable now" solo activa una opción, pero NO instala el programa. |
+
+**Cómo romper el ciclo:**
+1.  **Cierra el mensaje:** No le des más clics a "Reload now" por ahora.
+2.  **Instala Node.js:** Ve al **Paso 2.5** de la Guía de Configuración e instala la versión **LTS**.
+3.  **Verifica:** Abre la terminal y escribe `node --version`. Si funciona, vuelve a intentar activar el driver en SQLTools.
+
+---
+
+## 6. Error de Git: "Remote upstream already exists" 🚩
+Si al intentar vincularte con el profesor te sale: *"fatal: remote upstream already exists"*.
+
+| Pregunta | Respuesta |
+|---|---|
+| **¿Dónde?** | En la Terminal de VS Code. |
+| **¿Qué?** | Estás intentando agregar algo que ya agregaste antes. |
+| **¿Cuándo?** | Al ejecutar el comando `git remote add upstream...` por segunda vez. |
+| **¿Por qué?** | Git es precavido y te avisa que ya conoce ese enlace. |
+
+**Qué hacer:**
+*   **¡Nada!** Simplemente ignora el mensaje. Significa que ya estás conectado con el material del profesor. Puedes seguir con el siguiente paso tranquilamente.
+
+---
+
 > [!TIP]
 > **Regla de Oro:** Si nada funciona y estás frustrado, guarda tus cambios (`git add .`, `git commit`), cierra VS Code, respira 1 minuto, y vuelve a empezar. ¡La paciencia es la herramienta número 1 del analista de datos!
 

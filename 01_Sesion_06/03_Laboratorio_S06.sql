@@ -84,6 +84,9 @@ VALUES (1, 'Bogotá', 'Centro', 1.00, 0),
     (6, 'Leticia', 'Amazonia', 8.00, 1);
 SELECT *
 FROM DimCiudad
-ORDER BY Factor_Envio DESC;
+ORDER BY Factor_Envio desc;
+SELECT *
+FROM DimCiudad
+ORDER BY Factor_Envio desc;
 -- ═══════════════════════════════════════════════════════════════
 -- Fin del Laboratorio 06

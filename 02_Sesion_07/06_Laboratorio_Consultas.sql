@@ -45,7 +45,7 @@ WHERE CiudadID = 6;
 -- Éxito: 46 filas.
 SELECT *
 FROM FactVentas
-WHERE Descuento_Pct > 0.15 -- Éxito: 46 filas;
+WHERE Descuento_Pct > 0.15; -- Éxito: 46 filas
     -- C3: Ventas de Leticia CON descuento (Usa AND).
     -- Éxito: 38 filas.
 SELECT *
@@ -75,10 +75,10 @@ WHERE Categoria LIKE 'S%'
     OR Categoria LIKE 's%';
 -- C7: ¿Hay fechas sin nombre de mes en 'DimFecha'?
 -- Usa IS NULL: WHERE NombreMes IS NULL
--- Éxito: 0 filas.SELECT * FROM FactVentas WHERE FechaID IS NULL;
+-- Éxito: 0 filas.
 SELECT *
-FROM FactVentas
-WHERE FechaID IS NULL;
+FROM DimFecha
+WHERE NombreMes IS NULL;
 -- ══ BLOQUE D — Orden y Límites ═════════════════════════════════
 -- D1: Las 10 transacciones con mayor Costo_Envio (Ordenar DESC).
 -- Éxito: El costo más alto arriba.

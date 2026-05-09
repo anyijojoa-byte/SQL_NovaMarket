@@ -19,7 +19,7 @@ SELECT CiudadID,
     COUNT(*) AS Filas
 FROM FactVentas
 GROUP BY CiudadID;
--- Paso 2: El veredicto de Leticia con GROUP BY (Usando IDs)
+Respuesta paso 1: retorna 6 filas que corresponden a cada ciudad con el total de transacciones que hubo en cada una.-- Paso 2: El veredicto de Leticia con GROUP BY (Usando IDs)
 SELECT CiudadID,
     COUNT(*) AS Transacciones,
     ROUND(
@@ -111,10 +111,63 @@ ORDER BY Margen_Aproximado ASC;
 -- ═══════════════════════════════════════════════════════════════
 -- E1: (Fácil) Muestra nombre del producto, categoría y venta neta total de cada producto. Ordena de mayor a menor.
 -- [Tu código para E1 aquí]
+SELECT c.Ciudad AS Ciudad,
+    COUNT(*) AS Transacciones,
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+        ),
+        2
+    ) AS Venta_Neta,
+    ROUND(SUM(f.Costo_Envio), 2) AS Costo_Envio_Total,
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct) - f.Costo_Envio
+        ),
+        2
+    ) AS Margen_Aproximado
+FROM FactVentas f
+    INNER JOIN DimCiudad c ON f.CiudadID = c.CiudadID
+GROUP BY c.Ciudad
+ORDER BY Margen_Aproximado ASC;
 -- E2: (Medio) ¿Cuál producto vendió más en Leticia? Usa JOIN + WHERE + GROUP BY.
 -- [Tu código para E2 aquí]
+SELECT p.Producto,
+    c.Ciudad AS Ciudad,
+    COUNT(*) AS Transacciones,
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+        ),
+        2
+    ) AS Venta_Neta
+FROM FactVentas f
+    INNER JOIN DimCiudad c ON f.CiudadID = c.CiudadID
+    INNER JOIN DimProducto p ON f.ProductoID = p.ProductoID
+WHERE c.Ciudad = 'Leticia'
+GROUP BY p.Producto,
+    c.Ciudad
+ORDER BY Venta_Neta DESC
+LIMIT 1;
 -- E3: (Difícil) Reproduce la tabla del dashboard de S4 completa: Ciudad, Ventas, Utilidad, Margen%. Con nombres reales.
 -- [Tu código para E3 aquí]
+SELECT p.Producto AS Producto,
+    c.Ciudad AS Ciudad,
+    COUNT(*) AS Transacciones,
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+        ),
+        2
+    ) AS Venta_Neta
+FROM FactVentas f
+    INNER JOIN DimCiudad c ON f.CiudadID = c.CiudadID
+    INNER JOIN DimProducto p ON f.ProductoID = p.ProductoID
+WHERE c.Ciudad = 'Leticia'
+GROUP BY p.Producto,
+    c.Ciudad
+ORDER BY Venta_Neta DESC
+LIMIT 1;
 -- ═══════════════════════════════════════════════════════════════
 -- ¡Fin de la Unidad 2! Prepárate para Python en la Unidad 3.
 -- ═══════════════════════════════════════════════════════════════

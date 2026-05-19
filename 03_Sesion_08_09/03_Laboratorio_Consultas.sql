@@ -94,6 +94,10 @@ SELECT c.Ciudad AS Ciudad,
         ),
         2
     ) AS Venta_Neta,
+    ROUND(
+        SUM(f.Costo_Unitario * f.Cantidad),
+        2
+    ) AS Costo_Unitario_Total,
     ROUND(SUM(f.Costo_Envio), 2) AS Costo_Envio_Total,
     ROUND(
         SUM(

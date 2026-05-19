@@ -151,18 +151,14 @@ SELECT c.Ciudad,
     ) AS Ventas,
     ROUND(
         SUM(
-            (
-                f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
-            ) - f.Costo_Envio
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct) - f.Costo_Unitario * f.Cantidad - f.Costo_Envio
         ),
         2
     ) AS Utilidad,
     ROUND(
         (
             SUM(
-                (
-                    f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
-                ) - f.Costo_Envio
+                f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct) - f.Costo_Unitario * f.Cantidad - f.Costo_Envio
             ) / SUM(
                 f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
             )
